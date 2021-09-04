@@ -1,0 +1,39 @@
+.header {
+    display: flex;
+    padding: 10px;
+}
+
+.header .title {
+    color: cadetblue;
+    display: flex;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.header .actions {
+    display: flex;
+    font-size: 10px;
+    margin-left: auto;
+}
+
+.header .actions .action {
+    -color: grey;
+    padding-right: 10px;
+    -height: 10em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.header .actions .action .active {
+    color: cadetblue;
+    font-weight: bold;
+}
+
+.header .actions .search>p {
+    padding: 3px;
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 5px;
+    border-color: gray;
+}
