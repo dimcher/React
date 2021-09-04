@@ -1,8 +1,5 @@
 import React,  {Component} from 'react';
 
-import { Provider } from 'react-redux'
-//import store from './store'
-
 import {Action} from './Action';
 import {Search} from './Search';
 
