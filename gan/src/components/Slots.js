@@ -1,20 +1,18 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 
-//import { loadCatalog } from '../app/actions';
-
-import {Slot} from './Slot';
 import './Styles.css';
 
 const Slots = () => {
     console.log('Slots .....');
-    const list = useSelector(state => state.list.show);
+    
+    const slots = useSelector(state => state.list.show);
+    const code = slots.map((slot, idx) => {
+        return <div key={idx}>{ slot.name }</div>
+    });
     return (
         <div className="slots">
-            <Slot></Slot>
-            <Slot></Slot>
-            <Slot></Slot>
-            <Slot></Slot>
+            {code}
         </div>    
     )
 };
