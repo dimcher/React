@@ -25,9 +25,11 @@ const Views = () => {
         }
     };
     const code = views.map((item, idx) => {
+        const vico = <div className={item.icon + " icon"}>&nbsp;</div>
+        const vbut = <div>{item.name}</div>
         const i = idx === view
-        ? <p className="active">{item.name}</p>
-        : <p>{item.name}</p>;
+        ? <div className="active">{vico}{vbut}</div>
+        : <div>{vico}{vbut}</div>;
 
         return <div key={idx} onClick={() => changeViewHandler(idx)}>{i}</div>
     }); 

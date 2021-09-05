@@ -42,6 +42,36 @@
     font-weight: bold;
 }
 
+.header .actions .views .icon {
+    width: 20px;
+    height: 20px;
+}
+
+.header .actions .views .all {
+    background-image: url(../images/alldis.png);
+    background-repeat: no-repeat;
+}
+.header .actions .views .active .all {
+    background-image: url(../images/all.png);
+    background-repeat: no-repeat;
+}
+.header .actions .views .top {
+    background-image: url(../images/topdis.png);
+    background-repeat: no-repeat;
+}
+.header .actions .views .active .top {
+    background-image: url(../images/top.png);
+    background-repeat: no-repeat;
+}
+.header .actions .views .new {
+    background-image: url(../images/topdis.png);
+    background-repeat: no-repeat;
+}
+.header .actions .views .active .new {
+    background-image: url(../images/top.png);
+    background-repeat: no-repeat;
+}
+
 .header .actions .search {
     display: flex;
     align-items: center;
@@ -61,7 +91,7 @@
 .header .actions .search .icon {
     width: 20px;
     height: 20px;
-    background-image: url(../images/search1.png);
+    background-image: url(../images/search.png);
     background-repeat: no-repeat;
 }
 .header .actions .search input {
