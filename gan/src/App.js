@@ -10,6 +10,12 @@ import Slots from './components/Slots'
 function App () {
   const dispatch = useDispatch();
 
+  const loadData = function () {
+    fetch("https://jsonplaceholder.typicode.com/users")
+      .then(res => res.json())
+      .then(data => data);
+}
+
   return (
     <div className="App">
       <Header></Header>

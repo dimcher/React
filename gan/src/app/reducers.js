@@ -1,15 +1,9 @@
 import { createReducer } from '@reduxjs/toolkit';
 import { topList, loadList, resetList, recentList, changeView } from './actions';
 
-const loadData = function () {
-    fetch("https://jsonplaceholder.typicode.com/users")
-    .then(res => res.json())
-    .then(data => data);
-}
-
 const listState = {
-    list: loadData(),
-    show: loadData(),
+    list: [],
+    show: [],
 };
 const viewState = {
     view: 0,
@@ -22,18 +16,18 @@ const viewState = {
 
 const listReducer = createReducer(listState, (builder) => {
     builder.addCase(loadList, (state, action) => {
-        state.catalog = state.display = action.payload;
+        state.list = state.show = action.payload;
 
     }).addCase(resetList, (state, action) => {
-        state.display = state.catalog;
+        state.show = state.list;
 
     }).addCase(topList, (state, action) => {
-        state.display = state.catalog.filter(slot => {
+        state.show = state.list.filter(slot => {
             return slot.top
         });
 
     }).addCase(recentList, (state, action) => {
-        state.display = state.catalog.filter(slot => {
+        state.show = state.list.filter(slot => {
             return slot.recent
         });
     })
