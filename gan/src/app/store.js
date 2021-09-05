@@ -1,9 +1,9 @@
 import { configureStore } from '@reduxjs/toolkit';
-import reducer from './reducer';
+import catalogReducer from './reducer';
 
 const store = configureStore({
   reducer: {
-    dummy: reducer
+    catalog: catalogReducer
   },
 });
 
