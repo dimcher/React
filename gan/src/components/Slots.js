@@ -7,7 +7,7 @@ import {Slot} from './Slot';
 import './Styles.css';
 
 const Slots = () => {
-    const books = useSelector(state => console.log(state));
+    const list = useSelector(state => state.list.show);
     return (
         <div className="slots">
             <Slot></Slot>

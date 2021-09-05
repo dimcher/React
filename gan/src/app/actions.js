@@ -1,10 +1,10 @@
 import { createAction } from '@reduxjs/toolkit'
 import { useDispatch } from 'react-redux';
 
-const topCatalog = createAction('topCatalog');
-const loadCatalog = createAction('loadCatalog');
-const resetCatalog = createAction('resetCatalog');
-const recentCatalog = createAction('recentCatalog');
-const changeView = createAction('changeCiew');
+const topList = createAction('topList');
+const loadList = createAction('loadList');
+const resetList = createAction('resetList');
+const recentList = createAction('recentList');
+const changeView = createAction('changeView');
 
-export { topCatalog, loadCatalog, resetCatalog, recentCatalog, changeView };
+export { topList, loadList, resetList, recentList, changeView };

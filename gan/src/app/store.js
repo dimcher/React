@@ -1,9 +1,10 @@
 import { configureStore } from '@reduxjs/toolkit';
-import catalogReducer from './reducer';
+import {listReducer, viewReducer} from './reducers';
 
 const store = configureStore({
   reducer: {
-    catalog: catalogReducer
+    view: viewReducer,
+    list: listReducer
   },
 });
 

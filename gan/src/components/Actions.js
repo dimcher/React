@@ -6,7 +6,7 @@ import Search from './Search';
 
 const Actions = () => {
     return (
-        <div>
+        <div className="actions">
             <Views></Views>
             <Search></Search>
         </div>

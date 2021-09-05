@@ -4,19 +4,17 @@ import { useSelector } from 'react-redux';
 import './Styles.css';
 
 const Views = () => {
-    const views = useSelector(state => state.views);
-    const code = views.map((view, idx) => {
-        <div>
-            {
-                idx === state.view
-                ? <p className="active">{view.name}</p>
-                : <p>{view.name}</p>
-            }
-        </div>
-    }); 
+    const view = useSelector(state => state.view.view);
+    const views = useSelector(state => state.view.views);
+    const code = views.map((item, idx) => {
+        const i = idx === view.view
+        ? <p className="active" key={idx}>{item.name}</p>
+        : <p key={idx}>{item.name}</p>;
 
+        return <div>{i}</div>
+    }); 
     return (
-        <div className="view">{code}</div>    
+        <div className="views">{code}</div>    
     )
 };
 

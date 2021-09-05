@@ -16,16 +16,20 @@
     margin-left: auto;
 }
 
-.header .actions .action {
-    -color: grey;
-    padding-right: 10px;
-    -height: 10em;
+.header .actions .views {
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-.header .actions .action .active {
+.header .actions .views>div {
+    color: grey;
+    padding-right: 10px;
+    align-items: center;
+    justify-content: center;
+}
+
+.header .actions .views .active {
     color: cadetblue;
     font-weight: bold;
 }
