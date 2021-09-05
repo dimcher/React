@@ -1,5 +1,5 @@
 import React  from 'react';
-import { changeView } from '../app/actions';
+import { topList, resetList, newList, changeView } from '../app/actions';
 import { useSelector, useDispatch } from 'react-redux';
 
 import './Styles.css';
@@ -10,6 +10,19 @@ const Views = () => {
     const dispatch = useDispatch();
     const changeViewHandler = (idx) => {
         dispatch(changeView(idx));
+        switch (idx) {
+            case 0:
+                dispatch(resetList());
+                break;
+            case 1:
+                dispatch(newList());
+                break;
+            case 2:
+                dispatch(topList());
+                break;
+            default:
+                dispatch(resetList());
+        }
     };
     const code = views.map((item, idx) => {
         const i = idx === view

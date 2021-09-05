@@ -1,5 +1,5 @@
 import { createReducer } from '@reduxjs/toolkit';
-import { topList, loadList, resetList, recentList, changeView } from './actions';
+import { topList, loadList, resetList, newList, changeView } from './actions';
 
 const listState = {
     list: [],
@@ -17,6 +17,7 @@ const viewState = {
 const listReducer = createReducer(listState, (builder) => {
     builder.addCase(loadList, (state, action) => {
         state.list = state.show = action.payload;
+        console.log('dimcher.......', action.payload);
 
     }).addCase(resetList, (state, action) => {
         state.show = state.list;
@@ -26,7 +27,7 @@ const listReducer = createReducer(listState, (builder) => {
             return slot.top
         });
 
-    }).addCase(recentList, (state, action) => {
+    }).addCase(newList, (state, action) => {
         state.show = state.list.filter(slot => {
             return slot.recent
         });
