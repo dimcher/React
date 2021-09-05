@@ -4,7 +4,7 @@ import { useDispatch } from 'react-redux';
 
 import './App.css';
 
-import {Header} from './components/Header'
+import Header from './components/Header'
 import Slots from './components/Slots'
 
 function App () {

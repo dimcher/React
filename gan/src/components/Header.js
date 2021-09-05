@@ -1,16 +1,20 @@
 import React,  {Component} from 'react';
 
+import { useSelector } from 'react-redux';
+
 import Actions from './Actions';
 
 import './Styles.css';
 
-export class Header extends Component {
-    render () {
-        return (
-            <div className="header">
-                <div className="title"><p>SLOTS</p></div>
-                <Actions></Actions>
-            </div>    
-        )
-    }
+const Header = () => {
+    const show = useSelector(state => state.list.show);
+    return (
+        <div className="header">
+            <div className="title"><p className="text">SLOTS</p><p className="counter">found: { show.length }</p></div>
+            <div className="counter"></div>
+            <Actions></Actions>
+        </div>    
+    )
 }
+
+export default Header;

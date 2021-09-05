@@ -4,10 +4,18 @@
 }
 
 .header .title {
-    color: cadetblue;
     display: flex;
+}
+
+.header .title .text {
+    color: cadetblue;
     font-size: 14px;
     font-weight: bold;
+}
+
+.header .title .counter {
+    margin-left: 20px;
+    font-size: 14px;
 }
 
 .header .actions {
