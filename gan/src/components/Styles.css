@@ -32,9 +32,19 @@
 
 .header .actions .views>div {
     color: grey;
-    padding-right: 10px;
+    padding: 2px 5px;
     align-items: center;
     justify-content: center;
+    border-color: white;
+    border-width: 1px;
+    border-style: solid;
+}
+.header .actions .views>div:hover {
+    cursor: pointer;
+    border-color: black;
+    border-color: gray;
+    border-radius: 5px;
+
 }
 
 .header .actions .views .active {
@@ -64,16 +74,17 @@
     background-repeat: no-repeat;
 }
 .header .actions .views .new {
-    background-image: url(../images/topdis.png);
+    background-image: url(../images/newdis.png);
     background-repeat: no-repeat;
 }
 .header .actions .views .active .new {
-    background-image: url(../images/top.png);
+    background-image: url(../images/new.png);
     background-repeat: no-repeat;
 }
 
 .header .actions .search {
     display: flex;
+    padding-left: 5px;
     align-items: center;
 }
 .header .actions .search>div {
