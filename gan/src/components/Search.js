@@ -7,7 +7,14 @@ import './Styles.css';
 
 function Search () {
     const dispatch = useDispatch();
-    const searchListHandler = (e) => {
+    const pressSearchHandler = (e) => {
+        if (e.charCode === 13) {
+            const search = e.target.value;
+            dispatch(searchList(search));
+        }
+    }
+    const clickSearchHandler = (e) => {
+        console.log(e);
         e.preventDefault();
         const search = e.target.previousElementSibling.firstChild.value;
         dispatch(searchList(search));
@@ -16,8 +23,8 @@ function Search () {
     return (
         <div className="search">
             <div>
-                <div className="input"><input type="text" placeholder="Search" /></div>
-                <div className="icon" onClick={ searchListHandler }>&nbsp;</div>
+                <div className="input"><input type="text" placeholder="Search" onKeyPress={ pressSearchHandler } /></div>
+                <div className="icon" onClick={ clickSearchHandler }>&nbsp;</div>
             </div>
         </div>    
     )
