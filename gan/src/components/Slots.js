@@ -14,7 +14,7 @@ const Slots = () => {
                     <img src={ url } srcSet={ src } alt={ slot.title } />
                 </div>
     });
-//    console.log(list);
+
     return (
         <div className="slots">
             {code}
