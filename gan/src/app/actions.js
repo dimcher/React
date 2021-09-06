@@ -8,6 +8,7 @@ const searchList = createAction('searchList');
 const listPage = createAction('listPage');
 const listPages = createAction('listPages');
 const changeView = createAction('changeView');
+const setSearch = createAction('setSearch');
 const resetSearch = createAction('resetSearch');
 
-export { topList, loadList, resetList, newList, searchList, listPage, listPages, changeView, resetSearch };
+export { topList, loadList, resetList, newList, searchList, listPage, listPages, changeView, setSearch, resetSearch };

@@ -1,13 +1,13 @@
 import React from 'react';
 
-import { searchList, resetList } from '../app/actions';
+import { searchList, setSearch, resetList } from '../app/actions';
 import { useDispatch, useSelector } from 'react-redux';
 
 import './Styles.css';
 
 function Search () {
     const dispatch = useDispatch();
-    const keyUpSearchHandler = (e) => {
+    const keyUpHandler = (e) => {
         e.preventDefault();
         const search = e.target.value;
         if (e.keyCode === 13) {
@@ -16,6 +16,10 @@ function Search () {
         else if (search.length === 0) {
             dispatch(resetList());
         }
+    };
+    const changeHandler = (e) => {
+        e.preventDefault();
+        dispatch(setSearch(e.target.value));
     };
     const clickSearchHandler = (e) => {
         e.preventDefault();
@@ -32,7 +36,9 @@ function Search () {
                     <input 
                         type="text" 
                         placeholder="Search" 
-                        onKeyUp={ keyUpSearchHandler } 
+                        value={ search } 
+                        onKeyUp={ keyUpHandler } 
+                        onChange={ changeHandler } 
                     /></div>
                 <div className="icon" onClick={ clickSearchHandler }>&nbsp;</div>
             </div>

@@ -12,8 +12,7 @@ function App () {
   const baseUrl = useSelector(state => state.list.baseUrl);
   const moviePath = useSelector(state => state.list.moviePath);
   const bestMovies = useSelector(state => state.list.bestMovies);
-  console.log(apiKey);
-
+  
   const dispatch = useDispatch();
   const loadListHandler = () => {
       fetch(baseUrl + moviePath + apiKey + bestMovies)
