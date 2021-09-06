@@ -1,5 +1,6 @@
 import { createReducer } from '@reduxjs/toolkit';
-import { topList, loadList, resetList, newList, listPage, listPages, searchList, changeView } from './actions';
+import { topList, loadList, resetList, newList, listPage, listPages, searchList, 
+    changeView, resetSearch } from './actions';
 
 const listState = {
     list: [],
@@ -19,7 +20,8 @@ const viewState = {
         { name: 'ALL', icon: 'all' },
         { name: 'NEW', icon: 'new' },
         { name: 'TOP', icon: 'top' }
-    ]
+    ],
+    search: ""
 };
 
 const listReducer = createReducer(listState, (builder) => {
@@ -57,17 +59,8 @@ const viewReducer = createReducer(viewState, (builder) => {
     builder.addCase(changeView, (state, action) => {
         const view = action.payload;
         state.view = view;
-        switch (view) {
-            case 0:
-                console.log("aaa");
-                break;
-            case 1:
-                console.log("bbb");
-                break;
-            case 2:
-                console.log("ccc");
-                break;
-        }
+    }).addCase(resetSearch, (state, action) => {
+        state.search = ""
     });
 
 });

@@ -1,5 +1,5 @@
 import React  from 'react';
-import { topList, resetList, newList, changeView } from '../app/actions';
+import { topList, resetList, newList, changeView, resetSearch } from '../app/actions';
 import { useSelector, useDispatch } from 'react-redux';
 
 import './Styles.css';
@@ -9,6 +9,7 @@ const Views = () => {
     const views = useSelector(state => state.view.views);
     const dispatch = useDispatch();
     const changeViewHandler = (idx) => {
+        dispatch(resetSearch());
         dispatch(changeView(idx));
         switch (idx) {
             case 0:
