@@ -4,10 +4,18 @@
 }
 
 .header .title {
-    color: cadetblue;
     display: flex;
+}
+
+.header .title .text {
+    color: cadetblue;
     font-size: 14px;
     font-weight: bold;
+}
+
+.header .title .counter {
+    margin-left: 20px;
+    font-size: 14px;
 }
 
 .header .actions {
@@ -16,24 +24,97 @@
     margin-left: auto;
 }
 
-.header .actions .action {
-    -color: grey;
-    padding-right: 10px;
-    -height: 10em;
+.header .actions .views {
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-.header .actions .action .active {
+.header .actions .views>div {
+    color: grey;
+    padding: 2px 5px;
+    align-items: center;
+    justify-content: center;
+    border-color: white;
+    border-width: 1px;
+    border-style: solid;
+}
+.header .actions .views>div:hover {
+    cursor: pointer;
+    border-color: black;
+    border-color: gray;
+    border-radius: 5px;
+
+}
+
+.header .actions .views .active {
     color: cadetblue;
     font-weight: bold;
 }
 
-.header .actions .search>p {
-    padding: 3px;
-    border-style: solid;
+.header .actions .views .icon {
+    width: 20px;
+    height: 20px;
+}
+
+.header .actions .views .all {
+    background-image: url(../images/alldis.png);
+    background-repeat: no-repeat;
+}
+.header .actions .views .active .all {
+    background-image: url(../images/all.png);
+    background-repeat: no-repeat;
+}
+.header .actions .views .top {
+    background-image: url(../images/topdis.png);
+    background-repeat: no-repeat;
+}
+.header .actions .views .active .top {
+    background-image: url(../images/top.png);
+    background-repeat: no-repeat;
+}
+.header .actions .views .new {
+    background-image: url(../images/newdis.png);
+    background-repeat: no-repeat;
+}
+.header .actions .views .active .new {
+    background-image: url(../images/new.png);
+    background-repeat: no-repeat;
+}
+
+.header .actions .search {
+    display: flex;
+    padding-left: 5px;
+    align-items: center;
+}
+.header .actions .search>div {
+    display: flex;
+    align-items: center;
     border-width: 1px;
-    border-radius: 5px;
     border-color: gray;
+    border-radius: 10px;
+    border-style: solid;
+    padding: 3px;
+    background-color: lightgrey;
+}
+.header .actions .search .icon {
+    width: 20px;
+    height: 20px;
+    background-image: url(../images/search.png);
+    background-repeat: no-repeat;
+}
+.header .actions .search input {
+    border-width: 0px;
+    background-color: lightgrey;
+}
+.slots {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.slots>div {
+    padding: 10px;
+}
+.slots img {
+    width: 100px;
 }
