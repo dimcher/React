@@ -18,7 +18,7 @@ function App () {
   
   useEffect(() => {
     fetchJson(url, load);
-    for (let i=2; i<10; i++) {
+    for (let i=2; i<50; i++) {
       fetchJson(url + i, append);
     }
   });

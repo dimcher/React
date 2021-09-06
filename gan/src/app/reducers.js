@@ -2,6 +2,9 @@ import { createReducer } from '@reduxjs/toolkit';
 import { topList, loadList, appendList, resetList, newList, listPage, listPages, searchList, 
     changeView, setSearch, resetSearch } from './actions';
 
+const date = new Date();
+const year = date.getFullYear();
+
 const listState = {
     list: [],
     show: [],
@@ -13,8 +16,8 @@ const listState = {
     siteBase: 'https://www.themoviedb.org',
     movieSrc: '/t/p/w440_and_h660_face',
     showPage: '&page=',
-    moviePath: '/4/discover/movie?',
-    bestMovies: '&primary_release_year=2010&sort_by=vote_average.desc'
+    moviePath: '/3/discover/movie?',
+    bestMovies: '&primary_release_year=' + year + '&sort_by=release_date.asc'
 };
 const viewState = {
     view: 0,
@@ -50,12 +53,16 @@ const listReducer = createReducer(listState, (builder) => {
 
     }).addCase(topList, (state, action) => {
         state.show = state.list.filter(slot => {
-            return slot.top
+            return slot.vote_average > 9
         })
 
     }).addCase(newList, (state, action) => {
+        const cmp = new Date(year, date.getMonth()-1, date.getDay());
+        console.log(cmp);
         state.show = state.list.filter(slot => {
-            return slot.recent
+            const date = new Date(slot.release_date);
+
+            return date > cmp
         })
 
     }).addCase(listPage, (state, action) => {
@@ -66,9 +73,7 @@ const listReducer = createReducer(listState, (builder) => {
     
     }).addCase(searchList, (state, action) => {
         const regex = new RegExp('\\b'+action.payload, 'i');
-        state.show = state.list.filter(slot => {
-            console.log(slot.title);
-
+        state.show = state.show.filter(slot => {
             return regex.test(slot.title);
         })
     });
