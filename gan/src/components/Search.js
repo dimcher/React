@@ -14,7 +14,6 @@ function Search () {
         }
     }
     const clickSearchHandler = (e) => {
-        console.log(e);
         e.preventDefault();
         const search = e.target.previousElementSibling.firstChild.value;
         dispatch(searchList(search));

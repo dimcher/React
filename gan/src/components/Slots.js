@@ -8,7 +8,7 @@ const Slots = () => {
     
     const slots = useSelector(state => state.list.show);
     const code = slots.map((slot, idx) => {
-        return <div key={idx}>{ slot.name }</div>
+        return <div key={idx}>{ slot.title }</div>
     });
     return (
         <div className="slots">

@@ -6,6 +6,7 @@ const store = configureStore({
     view: viewReducer,
     list: listReducer
   },
+  dimcher: '1234'
 });
 
 export default store; 

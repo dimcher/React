@@ -1,9 +1,11 @@
 import { createReducer } from '@reduxjs/toolkit';
-import { topList, loadList, resetList, newList, searchList, changeView } from './actions';
+import { topList, loadList, resetList, newList, listPage, listPages, changeView } from './actions';
 
 const listState = {
     list: [],
     show: [],
+    page: 1,
+    pages: 0
 };
 const viewState = {
     view: 0,
@@ -31,22 +33,29 @@ const listReducer = createReducer(listState, (builder) => {
             return slot.recent
         })
 
-    }).addCase(searchList, (state, action) => {
-        if (action.payload.length) {
-            state.show = state.list.filter(slot => {
-                const regex = new RegExp('\\b' + action.payload, 'i');
-                return regex.test(slot.name);
-            })
-        }
-        else {
-            state.show = state.list;
-        }
-    })
+    }).addCase(listPage, (state, action) => {
+        state.page = action.payload;
+
+    }).addCase(listPages, (state, action) => {
+        state.pages = action.payload;
+    });
 });
 
 const viewReducer = createReducer(viewState, (builder) => {
     builder.addCase(changeView, (state, action) => {
-        state.view = action.payload;
+        const view = action.payload;
+        state.view = view;
+        switch (view) {
+            case 0:
+                console.log("aaa");
+                break;
+            case 1:
+                console.log("bbb");
+                break;
+            case 2:
+                console.log("ccc");
+                break;
+        }
     })
 });
 

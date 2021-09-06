@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { loadList } from './app/actions';
+import { loadList, listPage, listPages } from './app/actions';
 import { useDispatch } from 'react-redux';
 
 import './App.css';
@@ -8,11 +8,25 @@ import Header from './components/Header'
 import Slots from './components/Slots'
 
 function App () {
+
+
+  const apiPath = {
+    apiKey: "api_key=b987c4f78646d38a43e391c761addd2f",
+    baseUrl: "https://api.themoviedb.org/4",
+    moviePath: '/discover/movie?',
+    bestMovies: '&certification_country=US&primary_release_year=2010&sort_by=vote_average.desc',
+    movieSrc: '/t/p/w440_and_h660_face/' 
+  };
+
   const dispatch = useDispatch();
   const loadListHandler = () => {
-      fetch("https://jsonplaceholder.typicode.com/users")
+      fetch(apiPath.baseUrl + apiPath.moviePath + apiPath.apiKey + apiPath.bestMovies)
         .then(res => res.json())
-        .then(data => dispatch(loadList(data)))
+        .then(data => {
+          dispatch(loadList(data.results));
+          dispatch(listPage(data.page));
+          dispatch(listPages(data.pages));
+        })
   };
   
   useEffect(() => {
