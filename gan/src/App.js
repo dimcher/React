@@ -14,7 +14,7 @@ function App () {
     apiKey: "api_key=b987c4f78646d38a43e391c761addd2f",
     baseUrl: "https://api.themoviedb.org/4",
     moviePath: '/discover/movie?',
-    bestMovies: '&certification_country=US&primary_release_year=2010&sort_by=vote_average.desc',
+    bestMovies: '&primary_release_year=2010&sort_by=vote_average.desc',
     movieSrc: '/t/p/w440_and_h660_face/' 
   };
 

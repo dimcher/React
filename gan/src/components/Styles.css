@@ -109,3 +109,14 @@
     border-width: 0px;
     background-color: lightgrey;
 }
+.slots {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.slots>div {
+    padding: 10px;
+}
+.slots img {
+    width: 100px;
+}
