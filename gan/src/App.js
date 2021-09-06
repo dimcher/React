@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { loadList, listPage, listPages } from './app/actions';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 import './App.css';
 
@@ -8,19 +8,15 @@ import Header from './components/Header'
 import Slots from './components/Slots'
 
 function App () {
-
-
-  const apiPath = {
-    apiKey: "api_key=b987c4f78646d38a43e391c761addd2f",
-    baseUrl: "https://api.themoviedb.org/4",
-    moviePath: '/discover/movie?',
-    bestMovies: '&primary_release_year=2010&sort_by=vote_average.desc',
-    movieSrc: '/t/p/w440_and_h660_face/' 
-  };
+  const apiKey = useSelector(state => state.list.apiKey);
+  const baseUrl = useSelector(state => state.list.baseUrl);
+  const moviePath = useSelector(state => state.list.moviePath);
+  const bestMovies = useSelector(state => state.list.bestMovies);
+  console.log(apiKey);
 
   const dispatch = useDispatch();
   const loadListHandler = () => {
-      fetch(apiPath.baseUrl + apiPath.moviePath + apiPath.apiKey + apiPath.bestMovies)
+      fetch(baseUrl + moviePath + apiKey + bestMovies)
         .then(res => res.json())
         .then(data => {
           dispatch(loadList(data.results));
