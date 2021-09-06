@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
-import { loadList, listPage, listPages } from './app/actions';
+import { loadList, appendList } from './app/actions';
+import { fetchJson } from './app/library';
 import { useDispatch, useSelector } from 'react-redux';
 
 import './App.css';
@@ -8,24 +9,18 @@ import Header from './components/Header'
 import Slots from './components/Slots'
 
 function App () {
-  const apiKey = useSelector(state => state.list.apiKey);
-  const baseUrl = useSelector(state => state.list.baseUrl);
-  const moviePath = useSelector(state => state.list.moviePath);
-  const bestMovies = useSelector(state => state.list.bestMovies);
-  
   const dispatch = useDispatch();
-  const loadListHandler = () => {
-      fetch(baseUrl + moviePath + apiKey + bestMovies)
-        .then(res => res.json())
-        .then(data => {
-          dispatch(loadList(data.results));
-          dispatch(listPage(data.page));
-          dispatch(listPages(data.pages));
-        })
-  };
+  
+  const url = useSelector(state => state.list.apiBase + state.list.moviePath + state.list.apiKey + state.list.bestMovies + state.list.showPage);
+
+  const load = (data) => { dispatch(loadList(data)) };
+  const append = (data) => { dispatch(appendList(data)) };
   
   useEffect(() => {
-    loadListHandler();
+    fetchJson(url, load);
+    for (let i=2; i<10; i++) {
+      fetchJson(url + i, append);
+    }
   });
 
   return (
